@@ -1,0 +1,82 @@
+<!--
+██████╗  ██████╗  ██████╗ ██╗     ███████╗██╗     ██╗██╗  ██╗
+██╔══██╗██╔═══██╗██╔═══██╗██║     ██╔════╝██║     ██║╚██╗██╔╝
+██████╔╝██║   ██║██║   ██║██║     █████╗  ██║     ██║ ╚███╔╝ 
+██╔══██╗██║   ██║██║   ██║██║     ██╔══╝  ██║     ██║ ██╔██╗ 
+██████╔╝╚██████╔╝╚██████╔╝███████╗██║     ███████╗██║██╔╝ ██╗
+╚═════╝  ╚═════╝  ╚═════╝ ╚══════╝╚═╝     ╚══════╝╚═╝╚═╝  ╚═╝
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolflix</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="img/B.png" type="favicon" sizes="16x16">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <!-- JS -->
+    <script src="js/script.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <picture id="site-logo">
+                <img src="img/site-logo.png" alt="Boolflix logo">
+            </picture>
+            <div class="search">
+                <input type="text" v-model='input' placeholder="search">
+                <button class="button-search" type="button" name="button" @click='search'>Search</button>
+            </div>
+        </header>
+        <main>
+            <!-- media boxes -->
+            <div id="contents">
+                <div class="box" v-for='item in contents'>
+                    <h1 v-if='item.title'>
+                        {{item.title}}</h1>
+                    <h1 v-else>
+                        {{item.name}}</h1>
+                    <picture v-if='item.poster_path'>
+                        <img class="poster" :src="'https://image.tmdb.org/t/p/original'+item.poster_path" alt="">
+                    </picture>
+                    <div v-else class="noLen">
+                    </div>
+                    <div class="original">
+                        <h2 v-if='item.original_title'>
+                            {{item.original_title}}</h2>
+                        <h2 v-else>
+                            {{item.original_name}}</h2>
+                        <div class="language">
+                            <span>
+                                {{item.original_language}}
+                            </span>
+                            <!-- country flags -->
+                            <img class="flag" :src="language(item.original_language)" alt="">
+                        </div>
+                    </div>
+                    <!-- trunc words -->
+                    <p>{{overview(item)}}...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
