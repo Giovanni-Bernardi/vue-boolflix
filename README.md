@@ -1,4 +1,4 @@
-<!-- Milestone 1: -->
+Milestone 1:
 Creare un layout base con una searchbar (una input e un button) in cui possiamo
 scrivere completamente o parzialmente il nome di un film. Possiamo, cliccando il
 bottone, cercare sull’API tutti i film che contengono ciò che ha scritto l’utente.
@@ -10,7 +10,7 @@ film trovato:
 4. Voto
 
 
-<!-- Milestone 2: -->
+Milestone 2:
 Trasformiamo la stringa statica della lingua in una vera e propria bandiera della
 nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della
 nazione ritornata dall’API.
@@ -20,7 +20,7 @@ attenti ad avere alla fine dei valori simili (le serie e i film hanno campi nel 
 risposta diversi, simili ma non sempre identici)
 
 
-<!-- Milestone 3: -->
+Milestone 3:
 In questa milestone come prima cosa aggiungiamo la copertina del film o della serie
 al nostro elenco. Ci viene passata dall’API solo la parte finale dell’URL, questo
 perché poi potremo generare da quella porzione di URL tante dimensioni diverse.
@@ -38,7 +38,7 @@ Arrotondiamo sempre per eccesso all’unità successiva, non gestiamo icone mezz
 piene
 
 
-<!-- Milestone 4: -->
+Milestone 4:
 Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp,
 creando un layout completo simil-Netflix:
 ● Un header che contiene logo e search bar
@@ -49,13 +49,13 @@ la poster_path con w342)
 aggiuntive già prese nei punti precedenti più la overview
 
 
-<!-- Milestone 5 (Opzionale): -->
+Milestone 5 (Opzionale):
 Partendo da un film o da una serie, richiedere all'API quali sono gli attori che fanno
 parte del cast aggiungendo alla nostra scheda Film / Serie SOLO i primi 5 restituiti
 dall’API con Nome e Cognome, e i generi associati al film con questo schema:
 “Genere 1, Genere 2, …”.
 
 
-<!-- Milestone 6 (Opzionale): -->
+Milestone 6 (Opzionale):
 Creare una lista di generi richiedendo quelli disponibili all'API e creare dei filtri con i
 generi tv e movie per mostrare/nascondere le schede ottenute con la ricerca
