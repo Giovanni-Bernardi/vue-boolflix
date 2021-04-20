@@ -16,13 +16,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolflix</title>
 
-    <!-- favicon -->
+    <!-- Favicon -->
     <link rel="icon" href="img/B.png" type="favicon" sizes="16x16">
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap"
         rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2e0cc00556.js" crossorigin="anonymous"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Vue -->
@@ -46,35 +48,60 @@
             </div>
         </header>
         <main>
-            <!-- media boxes -->
-            <div id="contents">
-                <div class="box" v-for='item in contents'>
-                    <h1 v-if='item.title'>
-                        {{item.title}}</h1>
-                    <h1 v-else>
-                        {{item.name}}</h1>
-                    <picture v-if='item.poster_path'>
-                        <img class="poster" :src="'https://image.tmdb.org/t/p/original'+item.poster_path" alt="">
+            <!-- MEDIA BOXES -->
+            <!-- film -->
+            <div id="films">
+                <div class="box" v-for='film in films'>
+                    <picture v-if='film.poster_path'>
+                        <img class="poster" :src="'https://image.tmdb.org/t/p/original'+film.poster_path"
+                            alt="film cover">
                     </picture>
                     <div v-else class="noLen">
                     </div>
+                    <!-- description hover -->
                     <div class="original">
-                        <h2 v-if='item.original_title'>
-                            {{item.original_title}}</h2>
-                        <h2 v-else>
-                            {{item.original_name}}</h2>
-                        <div class="language">
-                            <span>
-                                {{item.original_language}}
-                            </span>
-                            <!-- country flags -->
-                            <img class="flag" :src="language(item.original_language)" alt="">
+
+                        <!-- titolo -->
+                        <div class="main-title" v-if='film.title'>
+                            <strong>Titolo:</strong>{{film.title}}
                         </div>
+                        <div class="main-title" v-else>
+                            <strong>Titolo:</strong>{{film.name}}
+                        </div>
+
+                        <!-- titolo originale -->
+                        <div v-if='film.original_title'>
+                            <strong>Titolo originale:</strong>{{film.original_title}}
+                        </div>
+                        <div v-else class="subtitle">
+                            <strong>Titolo originale:</strong>{{film.original_name}}
+                        </div>
+
+                        <!-- voto   -->
+                        <div class="vote">
+                            <strong> Vote:</strong>
+                            <i class="fas fa-star" v-for="elem in vote(film.vote_average)"></i>
+                            <i class="far fa-star" v-for="elem in (5 - vote(film.vote_average))"></i>
+                        </div>
+
+                        <!-- lingua -->
+                        <div>
+                            <strong>Lingua:</strong>{{film.original_language}}
+                            <img class="flag" :src="language(film.original_language)" alt="">
+                        </div>
+
+                        <!-- overview -->
+                        <p><strong>Overview:</strong>{{overview(film)}}...</p>
                     </div>
-                    <!-- trunc words -->
-                    <p>{{overview(item)}}...</p>
+
                 </div>
             </div>
+
+
+            <!-- series -->
+
+
+
         </main>
     </div>
 </body>

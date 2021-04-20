@@ -21,24 +21,22 @@ body {
 /* titles */
 h1 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
   font-family: "Bebas Neue", cursive;
   text-align: center;
 }
 
 h2 {
   font-size: 1rem;
-  margin-top: 10px;
 }
 
-h3 {
+/* h3 {
   font-size: 0.9rem;
-}
+} */
 
 /* paragraphs */
-p {
+/* p {
   margin-top: 20px;
-}
+} */
 
 /* HEADER */
 header {
@@ -83,14 +81,24 @@ header input {
 }
 
 /* MAIN */
-
-/* MAIN */
 .poster {
   width: 170px;
   height: auto;
 }
 
-#contents {
+.subtitle {
+  margin-top: 0px;
+}
+
+#films {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+}
+
+#series {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -102,9 +110,13 @@ header input {
   width: 250px;
   height: auto;
   margin: 20px 25px;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
+}
+
+.main-title {
+  min-width: 400px;
 }
 
 .noLen {
@@ -116,6 +128,7 @@ header input {
 .original {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /* country flags */
@@ -126,10 +139,19 @@ header input {
 }
 
 .language {
-  margin-left: 10px;
   font-size: 1rem;
 }
 
 .language span {
   font: 1rem;
+}
+
+.vote {
+  display: flex;
+  align-items: center;
+  min-width: 400px;
+}
+
+.vote > .fas.fa-star {
+  color: #fec500;
 }
