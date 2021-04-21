@@ -42,20 +42,30 @@
             <picture id="site-logo">
                 <img src="img/site-logo.png" alt="Boolflix logo">
             </picture>
-            <nav id="header-nav">
-                <ul>
-                    <li><a>Home</a></li>
-                    <li><a>Serie TV</a></li>
-                    <li><a>Film</a></li>
-                    <li><a>Original</a>i</li>
-                    <li><a>Aggiunti di recente</a></li>
-                    <li><a>La mia lista</a></li>
-                </ul>
-            </nav>
+            <div id="header-nav">
+                <nav>
+                    <ul>
+                        <li><a>Home</a></li>
+                        <li><a>Serie TV</a></li>
+                        <li><a>Film</a></li>
+                        <li><a>Original</a></li>
+                        <li><a>Aggiunti di recente</a></li>
+                        <li><a>La mia lista</a></li>
+                    </ul>
+                </nav>
+            </div>
             <form id="search">
                 <input type="search" v-model='input'>
-                <button class="button-search" type="button" name="button" @click='search'>Search</button>
+                <button class="button-search" type="button" name="button" @click='search'
+                    @keyup.enter='search'>Search</button>
             </form>
+            <div id="bell">
+                <i class="fas fa-bell" style="font-size: 1.4rem;"></i>
+            </div>
+            <picture>
+                <a href="https://github.com/Giovanni-Bernardi">
+                    <img id="profile-img" src="img/giovanni.png" alt="GitHub profile"></a>
+            </picture>
         </header>
         <main>
             <!-- MEDIA BOXES -->
@@ -66,7 +76,7 @@
                         <img class="poster" :src="'https://image.tmdb.org/t/p/original'+film.poster_path"
                             alt="film cover">
                     </picture>
-                    <div v-else class="noLen"></div>
+                    <div v-else class="missing-img"></div>
 
                     <div class="infobox">
 

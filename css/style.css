@@ -33,11 +33,13 @@ h2 {
 header {
   width: 100%;
   height: 100px;
-  background-color: #000000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-items: center;
+  position: relative;
   padding: 0 20px;
+  background-color: #000000;
 }
 
 header input {
@@ -55,16 +57,47 @@ header input {
   margin-left: 30px;
 }
 
+/* NAVBAR */
+#header-nav {
+  position: absolute;
+  left: 19%;
+}
+
 #header-nav li {
   list-style-type: none;
   display: inline-flex;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.1rem;
+  color: #ffffff;
 }
 
-#search {
-  margin-right: 50px;
+#header-nav li,
+a {
+  margin: 0 7px;
+  transition: 0.3s;
+  opacity: 1;
+}
+
+ul li a:hover::before {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+ul li a:hover {
+  color: #f40612;
+  text-shadow: 0 0 #f40612;
+  opacity: 1;
+}
+
+#header-nav li:hover a {
+  cursor: pointer;
+  opacity: 1;
+}
+
+#bell {
+  position: absolute;
+  left: 92%;
 }
 
 .button-search {
@@ -77,6 +110,56 @@ header input {
   font-size: medium;
   font-weight: 600;
   cursor: pointer;
+}
+
+#search {
+  position: absolute;
+  left: 79%;
+}
+
+#profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  margin-right: 30px;
+}
+
+/* animated searchbar */
+input {
+  outline: none;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+input[type="search"] {
+  padding: 9px 10px 9px 32px;
+  background: #000000 url(../img/search-icon.png) no-repeat 9px center;
+  padding: 9px 10px 9px 32px;
+  width: 30px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+input[type="search"]:focus {
+  width: 100px;
+  background-color: rgb(8, 8, 8);
+  border-color: #030303;
+}
+
+input:-moz-placeholder {
+  color: rgb(255, 255, 255);
+}
+input::-webkit-input-placeholder {
+  color: rgb(255, 255, 255);
 }
 
 /* MAIN */
@@ -112,28 +195,26 @@ header input {
   margin: 21px 2px;
   position: relative;
   display: flex;
-  /* flex-wrap: nowrap; */
   justify-content: space-around;
   cursor: pointer;
-
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
 }
 
 .main-title {
   min-width: 400px;
 }
 
-.noLen {
-  width: 900px;
-  height: 230px;
-  background-color: grey;
+.missing-img {
+  width: 300px;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  background-image: url(../img/lookingforimg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .infobox {
   opacity: 0;
-  transition: .5s ease;
+  transition: 0.5s ease;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -165,6 +246,7 @@ header input {
   font: 1rem;
 }
 
+/* stars */
 .vote {
   display: flex;
   align-items: center;
@@ -176,74 +258,4 @@ header input {
 }
 
 
-/* custom search */
-input {
-	outline: none;
-}
 
-input[type=search] {
-	-webkit-appearance: textfield;
-	-webkit-box-sizing: content-box;
-	font-family: inherit;
-	font-size: 100%;
-}
-
-input::-webkit-search-decoration,
-input::-webkit-search-cancel-button {
-display: none; 
-}
-
-
-input[type=search] {
-	padding: 9px 10px 9px 32px;
-	background: #000000 url(../img/search-icon.png) no-repeat 9px center;
-	padding: 9px 10px 9px 32px;
-	width: 30px;
-	
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	
-	-webkit-transition: all .5s;
-	-moz-transition: all .5s;
-	transition: all .5s;
-}
-input[type=search]:focus {
-	width: 130px;
-	background-color: rgb(8, 8, 8);
-	border-color: #030303;
-}
-
-input:-moz-placeholder {
-	color: rgb(255, 255, 255);
-}
-input::-webkit-input-placeholder {
-	color: rgb(255, 255, 255);
-}
-
-/* Demo 2 */
-#demo-2 input[type=search] {
-	width: 15px;
-	padding-left: 10px;
-	color: transparent;
-	cursor: pointer;
-}
-#demo-2 input[type=search]:hover {
-	background-color: rgb(3, 3, 3);
-}
-#demo-2 input[type=search]:focus {
-	width: 130px;
-	padding-left: 32px;
-	color: #000;
-	background-color: #fff;
-	cursor: auto;
-  -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
-	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
-	box-shadow: 0 0 5px rgba(109,207,246,.5);
-}
-#demo-2 input:-moz-placeholder {
-	color: transparent;
-}
-#demo-2 input::-webkit-input-placeholder {
-	color: transparent;
-}

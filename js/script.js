@@ -14,7 +14,7 @@ function initVue() {
             params: {
               api_key: "751a05be1460b8ba83b49cc31a439091",
               query: this.input,
-              include_image_language: "en,noLen",
+              include_image_language: "en,missing-img",
             },
           })
           .then((data) => {
@@ -28,7 +28,7 @@ function initVue() {
             params: {
               api_key: "751a05be1460b8ba83b49cc31a439091",
               query: this.input,
-              include_image_language: "en,noLen",
+              include_image_language: "en,missing-img",
             },
           })
           .then((data) => {
