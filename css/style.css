@@ -82,7 +82,7 @@ header input {
 
 /* MAIN */
 .poster {
-  width: 170px;
+  width: 250px;
   height: auto;
 }
 
@@ -107,13 +107,20 @@ header input {
 }
 
 .box {
-  width: 250px;
+  width: 280px;
   height: auto;
-  margin: 20px 25px;
+  margin: 21px -2px;
+  position: relative;
+  display: flex;
+  /* flex-wrap: nowrap; */
+  justify-content: space-around;
+
   /* display: flex;
   flex-direction: column;
   align-items: center; */
 }
+
+
 
 .main-title {
   min-width: 400px;
@@ -125,10 +132,22 @@ header input {
   background-color: grey;
 }
 
-.original {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+.infobox {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.box:hover .infobox{ 
+  display: block;
 }
 
 /* country flags */

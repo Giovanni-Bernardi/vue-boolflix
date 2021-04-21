@@ -56,10 +56,9 @@
                         <img class="poster" :src="'https://image.tmdb.org/t/p/original'+film.poster_path"
                             alt="film cover">
                     </picture>
-                    <div v-else class="noLen">
-                    </div>
-                    <!-- description hover -->
-                    <div class="original">
+                    <div v-else class="noLen"></div>
+
+                    <div class="infobox">
 
                         <!-- titolo -->
                         <div class="main-title" v-if='film.title'>
@@ -77,7 +76,7 @@
                             <strong>Titolo originale:</strong>{{film.original_name}}
                         </div>
 
-                        <!-- voto   -->
+                        <!-- voto  -->
                         <div class="vote">
                             <strong> Vote:</strong>
                             <i class="fas fa-star" v-for="elem in vote(film.vote_average)"></i>
@@ -93,13 +92,55 @@
                         <!-- overview -->
                         <p><strong>Overview:</strong>{{overview(film)}}...</p>
                     </div>
-
                 </div>
             </div>
 
 
-            <!-- series -->
+            <!-- series -->1
+            <div id="series">
+                <div class="box" v-for='series in series'>
+                    <picture v-if='series.poster_path'>
+                        <img class="poster" :src="'https://image.tmdb.org/t/p/original'+series.poster_path"
+                            alt="series cover">
+                    </picture>
+                    <div v-else class="noLen"></div>
 
+                    <div class="infobox">
+
+                        <!-- titolo -->
+                        <div class="main-title" v-if='series.title'>
+                            <strong>Titolo:</strong>{{series.title}}
+                        </div>
+                        <div class="main-title" v-else>
+                            <strong>Titolo:</strong>{{series.name}}
+                        </div>
+
+                        <!-- titolo originale -->
+                        <div v-if='series.original_title'>
+                            <strong>Titolo originale:</strong>{{series.original_title}}
+                        </div>
+                        <div v-else class="subtitle">
+                            <strong>Titolo originale:</strong>{{series.original_name}}
+                        </div>
+
+                        <!-- voto  -->
+                        <div class="vote">
+                            <strong> Voto:</strong>
+                            <i class="fas fa-star" v-for="elem in vote(series.vote_average)"></i>
+                            <i class="far fa-star" v-for="elem in (5 - vote(series.vote_average))"></i>
+                        </div>
+
+                        <!-- lingua -->
+                        <div>
+                            <strong>Lingua:</strong>{{series.original_language}}
+                            <img class="flag" :src="language(series.original_language)" alt="">
+                        </div>
+
+                        <!-- overview -->
+                        <p><strong>Overview:</strong>{{overview(series)}}...</p>
+                    </div>
+                </div>
+            </div>
 
 
         </main>
