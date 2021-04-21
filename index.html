@@ -42,10 +42,20 @@
             <picture id="site-logo">
                 <img src="img/site-logo.png" alt="Boolflix logo">
             </picture>
-            <div class="search">
-                <input type="text" v-model='input' placeholder="search">
+            <nav id="header-nav">
+                <ul>
+                    <li><a>Home</a></li>
+                    <li><a>Serie TV</a></li>
+                    <li><a>Film</a></li>
+                    <li><a>Original</a>i</li>
+                    <li><a>Aggiunti di recente</a></li>
+                    <li><a>La mia lista</a></li>
+                </ul>
+            </nav>
+            <form id="search">
+                <input type="search" v-model='input'>
                 <button class="button-search" type="button" name="button" @click='search'>Search</button>
-            </div>
+            </form>
         </header>
         <main>
             <!-- MEDIA BOXES -->
@@ -96,7 +106,7 @@
             </div>
 
 
-            <!-- series -->1
+            <!-- series -->
             <div id="series">
                 <div class="box" v-for='series in series'>
                     <picture v-if='series.poster_path'>
